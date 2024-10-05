@@ -24,7 +24,7 @@ self.addEventListener('fetch', (e) => {
             return caches.match(event.request).then((response) => {
                 if (response) {
                     return response;
-                } else if (event.request.mode === 'navigate') {
+                } else if (e.request.mode === 'navigate') {
                     return caches.match(/testinng_DW/'offline.html');
                 }
             });
