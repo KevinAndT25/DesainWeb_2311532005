@@ -20,8 +20,8 @@ self.addEventListener('install', (e) => {
 
 self.addEventListener('fetch', (e) => {
     e.respondWith(
-        fetch(event.request).catch(() => {
-            return caches.match(event.request).then((response) => {
+        fetch(e.request).catch(() => {
+            return caches.match(e.request).then((response) => {
                 if (response) {
                     return response;
                 } else if (e.request.mode === 'navigate') {
